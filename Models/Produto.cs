@@ -1,9 +1,5 @@
 namespace BancoDigital.Models;
 
-// =============================================
-// PRODUTO - Classe base (abstrata)
-// Produto escolhido: EMPRESTIMO
-// =============================================
 public abstract class Produto
 {
     public int Id { get; set; }
@@ -11,17 +7,14 @@ public abstract class Produto
     public string Descricao { get; set; } = string.Empty;
 }
 
-// Produto: Empréstimo
 public class Emprestimo : Produto
 {
     public decimal ValorSolicitado { get; set; }
     public int NumeroParcelas { get; set; }
-    public decimal TaxaJurosMensal { get; set; } // Ex: 0.02 = 2%
+    public decimal TaxaJurosMensal { get; set; }
 
-    // Calcula o valor da parcela (regra de negócio)
     public decimal CalcularParcela()
     {
-        // Fórmula de juros compostos: PMT = PV * i / (1 - (1+i)^-n)
         if (TaxaJurosMensal == 0)
             return ValorSolicitado / NumeroParcelas;
 
@@ -33,9 +26,6 @@ public class Emprestimo : Produto
     }
 }
 
-// =============================================
-// CONTRATACAO - Liga cliente a um produto
-// =============================================
 public enum StatusContratacao
 {
     Pendente,
@@ -49,13 +39,11 @@ public class Contratacao
     public DateTime DataSolicitacao { get; set; } = DateTime.Now;
     public StatusContratacao Status { get; set; } = StatusContratacao.Pendente;
 
-    // Relacionamentos
     public int ClienteId { get; set; }
     public Cliente? Cliente { get; set; }
 
-    // Dados do empréstimo solicitado (salvos na contratação)
     public decimal ValorSolicitado { get; set; }
     public int NumeroParcelas { get; set; }
     public decimal TaxaJuros { get; set; }
-    public decimal? ValorParcela { get; set; } // calculado pelo consumer
+    public decimal? ValorParcela { get; set; }
 }

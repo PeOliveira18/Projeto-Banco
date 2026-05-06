@@ -16,7 +16,6 @@ public class AgenciasController : ControllerBase
         _db = db;
     }
 
-    // POST /api/agencias
     [HttpPost]
     public async Task<IActionResult> CadastrarAgencia([FromBody] CriarAgenciaRequest req)
     {
@@ -39,7 +38,6 @@ public class AgenciasController : ControllerBase
         });
     }
 
-    // GET /api/agencias/{id}
     [HttpGet("{id}")]
     public async Task<IActionResult> BuscarAgencia(int id)
     {

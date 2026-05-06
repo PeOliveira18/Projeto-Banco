@@ -31,6 +31,23 @@ Onde:
 
 ---
 
+## 5. Evidências de Funcionamento
+
+### Banco Oracle — Tabelas criadas
+![Oracle](docs/oracle.png)
+
+### Swagger — Contratação Aprovada
+![Swagger 1](docs/swagger-1.png)
+
+### Swagger — Endpoints
+![Swagger 2](docs/swagger-2.png)
+
+### Insomnia — Teste dos Endpoints
+![Insomnia](docs/insomnia.png)
+
+---
+
+
 ## 6. Endpoints Disponíveis
 
 ### POST /api/agencias — Cadastrar Agência

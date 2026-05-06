@@ -16,16 +16,13 @@ public class ContratacoesController : ControllerBase
         _db = db;
     }
 
-    // POST /api/contratacoes
     [HttpPost]
     public async Task<IActionResult> SolicitarContratacao([FromBody] CriarContratacaoRequest req)
     {
-        // Verifica se o cliente existe
         var cliente = await _db.Clientes.FindAsync(req.ClienteId);
         if (cliente == null)
             return NotFound(new { mensagem = "Cliente não encontrado." });
 
-        // Calcula o valor da parcela usando a fórmula de juros compostos
         decimal valorParcela = CalcularParcela(req.ValorSolicitado, req.NumeroParcelas, req.TaxaJuros);
 
         var contratacao = new Contratacao
@@ -35,7 +32,7 @@ public class ContratacoesController : ControllerBase
             NumeroParcelas = req.NumeroParcelas,
             TaxaJuros = req.TaxaJuros,
             ValorParcela = valorParcela,
-            Status = StatusContratacao.Aprovado, // Aprovação direta (sem fila)
+            Status = StatusContratacao.Aprovado,
             DataSolicitacao = DateTime.Now
         };
 
@@ -54,7 +51,6 @@ public class ContratacoesController : ControllerBase
         });
     }
 
-    // GET /api/contratacoes/{id}
     [HttpGet("{id}")]
     public async Task<IActionResult> ConsultarContratacao(int id)
     {
@@ -74,8 +70,6 @@ public class ContratacoesController : ControllerBase
         });
     }
 
-    // Método privado: calcula parcela com juros compostos
-    // PMT = PV * i / (1 - (1+i)^-n)
     private decimal CalcularParcela(decimal valor, int parcelas, decimal taxa)
     {
         if (taxa == 0)
