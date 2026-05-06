@@ -4,7 +4,7 @@
 
 | Nome | RM |
 |------|----|
-| SEU NOME AQUI | RM000000 |
+| Pedro Oliveira | RM99943 |
 
 ---
 
@@ -12,7 +12,7 @@
 
 **Empréstimo**
 
-Escolhemos o produto **Empréstimo** por ter uma regra de negócio clara e bem definida: o cálculo do valor da parcela usando a fórmula de **juros compostos (Price)**:
+Escolhi o produto **Empréstimo** por ter uma regra de negócio clara e bem definida: o cálculo do valor da parcela usando a fórmula de **juros compostos (Price)**:
 
 ```
 PMT = PV * i / (1 - (1+i)^-n)
