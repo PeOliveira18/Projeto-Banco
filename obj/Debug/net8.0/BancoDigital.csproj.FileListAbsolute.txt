@@ -118,3 +118,4 @@ C:\Users\labsfiap\Desktop\BancoDigital\obj\Debug\net8.0\refint\BancoDigital.dll
 C:\Users\labsfiap\Desktop\BancoDigital\obj\Debug\net8.0\BancoDigital.pdb
 C:\Users\labsfiap\Desktop\BancoDigital\obj\Debug\net8.0\BancoDigital.genruntimeconfig.cache
 C:\Users\labsfiap\Desktop\BancoDigital\obj\Debug\net8.0\ref\BancoDigital.dll
+C:\Users\labsfiap\Desktop\BancoDigital\obj\Debug\net8.0\BancoDigital.sourcelink.json
